@@ -2,7 +2,9 @@ use crate::{Buttons, Icon, Selection};
 
 use std::{ffi::OsString, os::windows::ffi::OsStrExt, ptr};
 use winapi::um::winuser::{
-    MessageBoxW, IDABORT, IDCANCEL, IDCONTINUE, IDIGNORE, IDNO, IDOK, IDRETRY, IDTRYAGAIN, IDYES, *,
+    MessageBoxW, IDABORT, IDCANCEL, IDCONTINUE, IDIGNORE, IDNO, IDOK, IDRETRY, IDTRYAGAIN, IDYES,
+    MB_ABORTRETRYIGNORE, MB_ICONERROR, MB_ICONINFORMATION, MB_ICONQUESTION, MB_ICONWARNING, MB_OK,
+    MB_OKCANCEL, MB_RETRYCANCEL, MB_YESNO, MB_YESNOCANCEL,
 };
 
 /// Helper function for converting &str to Windows's expected wchar_t + NULL format (LPCWSTR).
