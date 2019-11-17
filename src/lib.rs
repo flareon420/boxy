@@ -41,13 +41,11 @@ macro_rules! create {
     }};
 
     ($message: expr, $caption: expr) => {{
-        let message: &str = $message.into();
-        let caption: &str = $caption.into();
-        show(message, caption)
+        show($message, $caption)
     }};
 }
 
 #[test]
 fn test() {
-    create!("hello, world", "boxy");
+    let _result = create!("hello, world", "boxy").unwrap();
 }
