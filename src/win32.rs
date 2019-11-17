@@ -1,10 +1,9 @@
-use winapi::um::winuser::MessageBoxW;
-
 use std::{
     ffi::OsString,
     ptr,
     os::windows::ffi::OsStrExt,
 };
+use winapi::um::winuser::MessageBoxW;
 
 fn to_wtf16(s: &str) -> Box<[u16]> {
     OsString::from(s)
