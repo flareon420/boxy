@@ -13,9 +13,13 @@ fn to_wtf16(s: &str) -> Box<[u16]> {
         .into_boxed_slice() // but we really don't need a vector
 }
 
-pub fn show(message: &str, caption: &str) -> Result<Selection, ()> {
-    let message = to_wtf16(message);
-    let caption = to_wtf16(caption);
+pub fn show<S1, S2>(message: S1, caption: S2) -> Result<Selection, ()>
+where
+    S1: AsRef<str>,
+    S2: AsRef<str>, // they aren't necessarily the same type
+{
+    let message = to_wtf16(message.as_ref());
+    let caption = to_wtf16(caption.as_ref());
 
     // call winapi function
     let result = unsafe {
