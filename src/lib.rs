@@ -1,7 +1,7 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
+#[cfg(target_os = "windows")] mod win32;
+#[cfg(target_os = "windows")] pub use win32::show;
+
+#[test]
+fn test() {
+    show("Hello, world!", "boxy");
 }
