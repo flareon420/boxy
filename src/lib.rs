@@ -5,10 +5,12 @@ pub use win32::show;
 
 #[derive(Copy, Clone, Debug)]
 pub enum Buttons {
+    AbortRetryIgnore, // TODO: Maybe don't support this.
     OK,
     OKCancel,
+    RetryCancel,
     YesNo,
-    Quit,
+    YesNoCancel,
 }
 
 #[derive(Copy, Clone, Debug)]
