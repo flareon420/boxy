@@ -21,6 +21,19 @@ pub enum Icon {
     Nothing,
 }
 
+#[derive(Copy, Clone, Debug)]
+pub enum Selection {
+    Abort,
+    Cancel,
+    Continue,
+    Ignore,
+    No,
+    OK,
+    Retry,
+    TryAgain,
+    Yes,
+}
+
 #[macro_export]
 macro_rules! create {
     ($message: expr) => {{
