@@ -43,11 +43,25 @@ macro_rules! create {
     }};
 
     ($message: expr, $caption: expr) => {{
-        show($message, $caption)
+        create!($message, $caption, Icon::Nothing)
+    }};
+
+    ($message: expr, $caption: expr, $icon: expr) => {{
+        create!($message, $caption, $icon, Buttons::OK)
+    }};
+
+    ($message: expr, $caption: expr, $icon: expr, $buttons: expr) => {{
+        show($message, $caption, $icon, $buttons)
     }};
 }
 
 #[test]
 fn test() {
-    let _result = create!("hello, world", "boxy").unwrap();
+    let _result = create!(
+        "hello, world",
+        "boxy",
+        Icon::Error,
+        Buttons::AbortRetryIgnore
+    )
+    .unwrap();
 }
